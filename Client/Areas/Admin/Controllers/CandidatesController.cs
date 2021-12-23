@@ -109,5 +109,94 @@ namespace Client.Areas.Admin.Controllers
             return View(model);
         }
         #endregion
+
+        #region Step No. 3
+        [HttpGet]
+        public IActionResult Step3()
+        {
+            var model = new ParentInformationStep();
+
+            var stepData = TempData.Get<ParentInformationStep>("Step3");
+            if (stepData != null)
+            {
+                model.Email = stepData.Email;
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Step3(ParentInformationStep model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData.Set($"Step3", model);
+
+                return RedirectToAction("Step4", new { area = "Admin", controller = "Candidates" });
+            }
+
+            return View(model);
+        }
+        #endregion
+
+        #region Step No. 4
+        [HttpGet]
+        public IActionResult Step4()
+        {
+            var model = new ApplicationInformationStep();
+
+            var stepData = TempData.Get<ApplicationInformationStep>("Step4");
+            if (stepData != null)
+            {
+                model.SessionId = stepData.SessionId;
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Step4(ApplicationInformationStep model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData.Set($"Step4", model);
+
+                return RedirectToAction("Step5", new { area = "Admin", controller = "Candidates" });
+            }
+
+            return View(model);
+        }
+        #endregion
+
+        #region Step No. 5
+        [HttpGet]
+        public IActionResult Step5()
+        {
+            var model = new ReviewInformationStep();
+
+            var stepData = TempData.Get<ReviewInformationStep>("Step5");
+            if (stepData != null)
+            {
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Step5(ReviewInformationStep model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData.Set($"Step5", model);
+
+                return RedirectToAction("Index", new { area = "Admin", controller = "Candidates" });
+            }
+
+            return View(model);
+        }
+        #endregion
     }
 }
