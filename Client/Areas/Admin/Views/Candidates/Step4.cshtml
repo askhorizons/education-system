@@ -40,7 +40,11 @@
                         data-allow-clear="true" data-hide-search="false"
                         asp-for="SessionId" asp-items="Model.Sessions">
                     <option></option>
+                    <option value="2020">2020-21</option>
+                    <option value="2021">2021-22</option>
                 </select>
+                <span asp-validation-for="SessionId" class="text-danger small text-uppercase"></span>
+
                 <!--end::Input-->
             </div>
             <!--end::Input group-->
@@ -68,6 +72,8 @@
                     <option value="11">1st Year (II)</option>
                     <option value="12">2nd Year (II)</option>
                 </select>
+                <span asp-validation-for="ClassId" class="text-danger small text-uppercase"></span>
+
                 <!--end::Input-->
             </div>
             <!--end::Input group-->
@@ -86,6 +92,7 @@
                     <option value="2">Pre-Medical</option>
                     <option value="3">Computer Science</option>
                 </select>
+
                 <!--end::Input-->
             </div>
             <!--end::Input group-->
@@ -129,7 +136,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Wrapper-->
                 <div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-continue">
+                    <button type="submit" class="btn btn-lg btn-primary">
                         Continue
                         <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
                         <span class="svg-icon svg-icon-4 ms-1 me-0">

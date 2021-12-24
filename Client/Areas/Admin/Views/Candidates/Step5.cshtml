@@ -1,4 +1,4 @@
-﻿@model ParentInformationStep
+﻿@model ReviewInformationStep
 @{
     ViewData["Title"] = "New Application";
     Layout = "~/Views/Shared/_LayoutApplication.cshtml";
@@ -12,7 +12,7 @@
         <!--begin::Heading-->
         <div class="pb-10 pb-lg-15 pt-15">
             <!--begin::Title-->
-            <h2 class="fw-bolder text-dark">Parents &amp; Fee Payer Details</h2>
+            <h2 class="fw-bolder text-dark">Your Are Done!</h2>
             <!--end::Title-->
             <!--begin::Notice-->
             <div class="text-gray-400 fw-bold fs-6">
@@ -25,62 +25,54 @@
         <!--begin::Form-->
         <form class="py-20 w-100 w-xl-700px px-9"
               id="kt-application-form" method="post"
-              asp-area="Admin" asp-controller="Candidates" asp-action="Step3">
+              asp-area="Admin" asp-controller="Candidates" asp-action="Step4">
 
             @Html.AntiForgeryToken()
 
-            <!--begin::Input group-->
-            <div class="fv-row mb-10">
-                <!--begin::Input group-->
-                <!--begin::Label-->
-                <label class="form-label required">Parent (Father or Mother)</label>
-                <!--end::Label-->
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg form-control-solid"
-                           placeholder="" />
-                    <button class="btn btn-primary btn-hover-rotate-end" type="button"
-                            id="button-search-parent">
-                        <i class="fas fa-search"></i>
-                    </button>
+            <!--begin::Body-->
+            <div class="mb-0">
+                <!--begin::Text-->
+                <div class="fs-6 text-gray-600 mb-5">
+                    Your all profile, parents, and application details have been collected. You may review your details before proceeding further.
                 </div>
-                <!--end::Input group-->
-            </div>
-            <!--end::Input group-->
-            <!--begin::Input group-->
-            <div class="fv-row mb-10">
-                <!--begin::Input group-->
-                <!--begin::Label-->
-                <label class="form-label required">Fee Payer</label>
-                <!--end::Label-->
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg form-control-solid"
-                           placeholder="" />
-                    <button class="btn btn-primary btn-hover-rotate-end" type="button"
-                            id="button-search-feepayer">
-                        <i class="fas fa-search"></i>
-                    </button>
+                <!--end::Text-->
+                <!--begin::Alert-->
+                <!--begin::Notice-->
+                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                    <!--begin::Icon-->
+                    <!--begin::Svg Icon | path: icons/duotone/Code/Warning-1-circle.svg-->
+                    <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+                            <rect fill="#000000" x="11" y="7" width="2" height="8" rx="1" />
+                            <rect fill="#000000" x="11" y="16" width="2" height="2" rx="1" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    <!--end::Icon-->
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-stack flex-grow-1">
+                        <!--begin::Content-->
+                        <div class="fw-bold">
+                            <h4 class="text-gray-800 fw-bolder">We need your attention!</h4>
+                            <div class="fs-6 text-gray-600">
+                                To submit your application, please click
+                                <a href="#" class="fw-bolder">Submit</a>
+                            </div>
+                        </div>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
                 </div>
-                <!--end::Input group-->
+                <!--end::Notice-->
+                <!--end::Alert-->
             </div>
-            <!--end::Input group-->
-            <!--begin::Input group-->
-            <div class="fv-row mb-0">
-                <!--begin::Label-->
-                <label class="fs-6 fw-bold form-label required">Contact Email</label>
-                <!--end::Label-->
-                <!--begin::Input-->
-                <input class="form-control form-control-lg form-control-solid"
-                       placeholder="user@domain.com" asp-for="Email" />
-                <span asp-validation-for="Email" class="text-danger small text-uppercase"></span>
-
-                <!--end::Input-->
-            </div>
-            <!--end::Input group-->
+            <!--end::Body-->
             <!--begin::Actions-->
             <div class="d-flex flex-stack pt-10">
                 <!--begin::Wrapper-->
                 <div class="mr-2">
-                    <a asp-area="Admin" asp-controller="Candidates" asp-action="Step2"
+                    <a asp-area="Admin" asp-controller="Candidates" asp-action="Step4"
                        class="btn btn-lg btn-light-primary me-3">
                         <!--begin::Svg Icon | path: icons/duotone/Navigation/Left-2.svg-->
                         <span class="svg-icon svg-icon-4 me-1">
@@ -98,8 +90,8 @@
                 <!--end::Wrapper-->
                 <!--begin::Wrapper-->
                 <div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-continue">
-                        Continue
+                    <button type="submit" class="btn btn-lg btn-primary">
+                        Submit
                         <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
                         <span class="svg-icon svg-icon-4 ms-1 me-0">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -126,25 +118,8 @@
     <script>
         $(function () {
             $("#admin-candidates").addClass("active");
-            $("#Step3").addClass("current");
+            $("#Step5").addClass("current");
 
-            let placeholderElement = $('#modal-placeholder');
-
-            $("#button-search-parent").on("click", function (e) {
-                e.preventDefault();
-
-                let btn = $(this);
-
-                $.ajax({
-                    url: '/Helper/SearchParent',
-                    type: 'GET',
-                    success: function (response) {
-                        placeholderElement.html(response);
-                        placeholderElement.find('.modal').modal('show');
-                    },
-                    error: function () { }
-                })
-            });
         });
     </script>
 }

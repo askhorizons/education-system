@@ -31,7 +31,6 @@ namespace Client.Areas.Admin.Controllers
             _logger = logger;
             _mapper = mapper;
 
-            //TempData.Clear();
         }
 
         #region Index
@@ -61,6 +60,7 @@ namespace Client.Areas.Admin.Controllers
             {
                 model.Cnic = stepData.Cnic;
             }
+            TempData.Keep("Step1");
 
             return View(model);
         }
@@ -90,7 +90,17 @@ namespace Client.Areas.Admin.Controllers
             if (stepData != null)
             {
                 model.Name = stepData.Name;
+                model.DateOfBirth = stepData.DateOfBirth;
+                model.GenderId = stepData.GenderId;
             }
+
+            TempData.Keep("Step2");
+
+            model.Genders = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "Male" },
+                new SelectListItem { Value = "2", Text = "Female" }
+            };
 
             return View(model);
         }
@@ -105,6 +115,12 @@ namespace Client.Areas.Admin.Controllers
 
                 return RedirectToAction("Step3", new { area = "Admin", controller = "Candidates" });
             }
+
+            model.Genders = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "1", Text = "Male" },
+                new SelectListItem { Value = "2", Text = "Female" }
+            };
 
             return View(model);
         }
@@ -121,6 +137,7 @@ namespace Client.Areas.Admin.Controllers
             {
                 model.Email = stepData.Email;
             }
+            TempData.Keep("Step3");
 
             return View(model);
         }
@@ -150,7 +167,13 @@ namespace Client.Areas.Admin.Controllers
             if (stepData != null)
             {
                 model.SessionId = stepData.SessionId;
+                model.ClassId = stepData.ClassId;
+                model.OptionOneId = stepData.OptionOneId;
+                model.OptionTwoId = stepData.OptionTwoId;
             }
+
+            TempData.Keep("Step4");
+
 
             return View(model);
         }

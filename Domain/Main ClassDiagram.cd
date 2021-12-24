@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Domain.Candidate">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACBAAADAAAAAAAAAAAAQAAAAQEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Admission\Candidate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Application">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <AssociationLine Name="FeePayer" Type="Domain.Parent">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.093" Y="0.527" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OptionOne" Type="Domain.Option">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.302" Y="-0.207" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OptionTwo" Type="Domain.Option">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.26" Y="0.01" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Parent" Type="Domain.Parent">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.773" Y="0.493" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAgIAAACQIAAQIAQAAIAQABAAABAgAAAAAAAAA=</HashCode>
+      <FileName>Admission\Application.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Candidate" />
+      <Property Name="Class" />
+      <Property Name="FeePayer" />
+      <Property Name="OptionOne" />
+      <Property Name="OptionTwo" />
+      <Property Name="Parent" />
+      <Property Name="Session" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.Class" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgABAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Parent" Collapsed="true">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAAACAAAQAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Admission\Parent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Option" Collapsed="true">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\Option.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Session" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -18,5 +18,7 @@ namespace Domain
         public string Cnic { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public int GenderId { get; set; }
+
+        public virtual ICollection<Application> Applications { get; set; }
     }
 }
